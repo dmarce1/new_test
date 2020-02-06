@@ -35,9 +35,11 @@ int hpx_main(int argc, char *argv[]) {
 		d = 3;
 	}
 	constexpr int bf = 8;
-	printf("Creating %i components\n", int(pow(bf, d)));
-	hpx::new_<tree>(hpx::find_here(), d, 1, bf).get();
-	printf("Done\n");
+	{
+		printf("Creating %i components\n", int(pow(bf, d)));
+		hpx::new_<tree>(hpx::find_here(), d, 1, bf).get();
+		printf("Done\n");
+	}
 	return hpx::finalize();
 
 }
